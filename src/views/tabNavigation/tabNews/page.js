@@ -4,7 +4,7 @@ import ListNews from './components/listNews';
 
 const Page = (props) => {
     return(
-        <ListNews dataNews={props.dataNews} />
+        <ListNews dataNews={props.dataNews} onAddFavorite={props.onAddFavorite} />
     )
 }
 

@@ -20,7 +20,12 @@ const ListNews = (props) => {
 
             <FlatList
                 data={props.dataNews}
-                renderItem={({item}) => <ItemNew key={item.id} item={item} onNavigateToUrl={onNavigateToUrl} />}
+                renderItem={({item}) => <ItemNew 
+                    key={item.id} 
+                    item={item} 
+                    onNavigateToUrl={onNavigateToUrl} 
+                    onAddFavorite={props.onAddFavorite}
+                />}
             />
 
             <Modal

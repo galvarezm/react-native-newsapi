@@ -1,19 +1,10 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+
+import ListFavorites from './components/listFavorites';
 
 const Page = (props) => {
-    
     return(
-        <View 
-            style={{
-                flex:1,
-                flexDirection:'column',
-                justifyContent:'center',
-                alignItems:'center',
-            }}
-        >
-            <Text>Tab Favorite</Text>
-        </View>
+        <ListFavorites dataFavorite={props.dataFavorite} onRemoveFavorite={props.onRemoveFavorite} />
     )
 }
 

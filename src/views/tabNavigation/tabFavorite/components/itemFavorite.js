@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button, Image} from 'react-native';
 
-const ItemNew = (props) => {
+const ItemFavorite = (props) => {
     const { item } = props;
     return(
         <View 
@@ -31,14 +31,9 @@ const ItemNew = (props) => {
                 <Text>{item.description}</Text>
                 <Text style={{textDecorationLine:'underline',textDecorationColor:'blue',color:'blue'}}>{item.url}</Text>
                 <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center'}}>
-                    <Image source={require('../../../../assets/btn_read_new.png')} style={{width:24,height:24}} />
-                    <Button color={'blue'} title={'Open'} onPress={() => {
-                        props.onNavigateToUrl(item.url);
-                    }}></Button>
-                    <Text> | </Text>
                     <Image source={require('../../../../assets/btn_add_to_fav.png')} style={{width:24,height:24}} />
-                    <Button color={'orange'} title={'Add'} onPress={() => {
-                        props.onAddFavorite(item);
+                    <Button color={'orange'} title={'Remove'} onPress={() => {
+                        props.onRemoveFavorite(item.id);
                     }}></Button>
                 </View>
             </View>
@@ -46,4 +41,4 @@ const ItemNew = (props) => {
     )
 }
 
-export default ItemNew;
+export default ItemFavorite;
