@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native';
+
 // constantes de acción
 import * as typeActions from '../actions/typeActions';
 
@@ -14,7 +16,7 @@ function reducer(state = defaultState, { type, payload }) {
     // añadir un favorito
     if ( type === typeActions.ACTION_NEWS_FAVORITE_ADD ){
         let tmpState = [...state];
-        tmpState.push({
+        const newItem = {
             'id':          state.length+1,
             'name':        payload.name,
             'category':    payload.category,
@@ -22,15 +24,22 @@ function reducer(state = defaultState, { type, payload }) {
             'country':     payload.country,
             'description': payload.description,
             'url':         payload.url,
-        })
+        };
+        tmpState.push(newItem);
+
+        // actualizar estado local
+        AsyncStorage.setItem(typeActions.APP_NEWS_API_FAVORITES, JSON.stringify(tmpState));
+
         return tmpState;
     }
 
     // quitar un favorito
     if ( type === typeActions.ACTION_NEWS_FAVORITE_DEL ){
-        console.log("por aca", payload);
         let tmpState = [...state].filter(item => item.id !== payload);
-        console.log("salio", tmpState);
+
+        // actualizar estado local
+        AsyncStorage.setItem(typeActions.APP_NEWS_API_FAVORITES, JSON.stringify(tmpState));
+
         return tmpState;
     }
 

@@ -25,7 +25,6 @@ class TabFavorite extends React.Component {
     }
 
     render(){
-        console.log(this.props.dataFavorite);
         return(
             <SafeAreaView style={{flex:1}}>
 
@@ -44,7 +43,6 @@ class TabFavorite extends React.Component {
     }
 
     onRemoveFavorite = (id) => {
-        console.log("recibo", id);
         this.props.removeItem(id);
     }
 
