@@ -1,19 +1,10 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+
+import ListNews from './components/listNews';
 
 const Page = (props) => {
-    
     return(
-        <View 
-            style={{
-                flex:1,
-                flexDirection:'column',
-                justifyContent:'center',
-                alignItems:'center',
-            }}
-        >
-            <Text>Tab News</Text>
-        </View>
+        <ListNews dataNews={props.dataNews} />
     )
 }
 
